@@ -10,7 +10,7 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from appmodule import routes, models
+from app import routes, models
 
 #commands - you will probably write them a lot
 #flask db init - initiliazes the db

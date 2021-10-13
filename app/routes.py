@@ -1,9 +1,9 @@
 #is where our routes will live
-from appmodule import app
+from app import app
 from flask import render_template
-from appmodule.forms import UserInfoForm, PostForm
-from appmodule.models import User, Post
-from appmodule import db
+from app.forms import UserInfoForm, PostForm
+from app.models import User, Post
+from app import db
 #create new folder in our appmodule named templates
 
 @app.route('/')  
