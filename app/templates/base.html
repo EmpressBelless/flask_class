@@ -11,9 +11,14 @@
 <title>{{ title }}</title>
 </head>
 <body>
+<body class= 'bg-dark text-white'>
+  {% include 'nav.html' %}
 
-{% include 'nav.html' %}
+
 <div class="container">
+<!-- messages will go here -->
+  {% include 'messages.html' %}
+  
   {% block content %}
 
   {% endblock content %}

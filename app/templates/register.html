@@ -3,7 +3,7 @@
 {% block content %}
 <h4>Register Here: </h4>
 <form action="" autocomplete="off" method='post'>
-  {{ form.csfr_token }}
+  {{ form.csrf_token }}
   <div class="form-group">
     <fieldset>
       {{ form.username.label }}
