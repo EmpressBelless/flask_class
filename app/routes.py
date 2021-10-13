@@ -9,14 +9,15 @@ from app.models import User, Post
 @app.route('/')  
 def index():
   title = 'Coding Temple Flask'
-  return render_template('index.html', title=title)
+  posts = Post.query.all()
+  return render_template('index.html', title=title, posts=posts)
 
 @app.route('/products')
 def products():
   name = 'Tommy'
   title = 'Coding Temple products'
   products = ['apple', 'orange', 'banana', 'peach']
-  return render_template('products.html', name_of_user = name, title=title, products=products)
+  return render_template('products.html', title=title, products=products)
 
 @app.route('/register', methods=['GET', 'POST'])#uppercase matters
 def register():
@@ -88,4 +89,8 @@ def createpost():
     new_post = Post(title, content, current_user.id)
     db.session.add(new_post)
     db.session.commit()
+
+    flash(f'This post {title} has been created.', 'primary')
+    return redirect(url_for('index')) 
+
   return render_template('createpost.html', form=form)
